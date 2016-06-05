@@ -13,8 +13,8 @@ RSpec.feature "visitor can create an account" do
 
     expect(current_path).to eq user_path(User.last)
 
-    within('#new_user_welcome') do
-      expect(page).to have_content("Welcome to GifGenerator, #{User.last.username}!")
+    within('#user_welcome') do
+      expect(page).to have_content("Howdy, #{User.last.username}!")
     end
 
     # within('#logout') do

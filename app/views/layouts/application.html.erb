@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- logic here: if the user is the current user, show the link to log out -->
-<!-- logic here: if the user is not the current user, show the link to log in -->
+  <% if current_user %>
+    <%= link_to "Log Out", logout_path, method: :delete %>
+  <% else %>
+    <%= link_to "Log In", login_path %>
+  <% end  %>
 
 <%= yield %>
 
