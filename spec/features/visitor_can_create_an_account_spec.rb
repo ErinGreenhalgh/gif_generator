@@ -4,7 +4,9 @@ RSpec.feature "visitor can create an account" do
   scenario "they enter their information to register as a user" do
     new_user_name = "Erin"
     new_user_password = "password"
-    visit root_path
+
+    visit new_user_path
+
     fill_in "Username", with: new_user_name
     fill_in "Password", with: new_user_password
     click_button "Create My Account"
@@ -12,11 +14,13 @@ RSpec.feature "visitor can create an account" do
     expect(current_path).to eq user_path(User.last)
 
     within('#new_user_welcome') do
-      expect(page).to have_content("Welcome to GifGenerator, #{User.last.username}"!)
+      expect(page).to have_content("Welcome to GifGenerator, #{User.last.username}!")
     end
 
-    within('#logout') do
-      expect(page).to have_content("Log Out")
-    end 
+    # within('#logout') do
+    #   expect(page).to have_content("Log Out")
+    # end
 
   end
+
+end

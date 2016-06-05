@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "admin creates categories and gifs" do
+  pending
   context "they can create a gif" do
     scenario "they see the field to search for a gif" do
       #user has to exist and be logged in as an admin
@@ -12,7 +13,7 @@ RSpec.feature "admin creates categories and gifs" do
       #expect(page).to have_css("img[src*="#{gif_image_path}"]")
       #within("h1") do
         #expect(page).to have_content(gif.category); this acts like the name of the gif
-      #end 
+      end
     end
 
 
