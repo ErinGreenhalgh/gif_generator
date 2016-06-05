@@ -17,6 +17,11 @@ RSpec.feature "visitor can create an account" do
       expect(page).to have_content("Howdy, #{User.last.username}!")
     end
 
+    expect(page).to have_content("Log Out")
+
+    within('#flash_welcome') do
+      expect(page).to have_content("Thank you for creating an account!")
+    end
   end
 
 end
