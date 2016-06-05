@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       flash[:welcome] = "Thank you for creating an account!"
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       flash[:error] = @user.errors.full_messages.join(", ")
