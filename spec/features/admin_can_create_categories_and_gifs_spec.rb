@@ -3,18 +3,25 @@ require 'rails_helper'
 RSpec.feature "admin creates categories and gifs" do
   pending
   context "they can create a gif" do
-    scenario "they see the field to search for a gif" do
-      #user has to exist and be logged in as an admin
-      #they visit the new_gif path namespaced under admin (check for path)
-      #fill_in "category_name" with name_of_category
-      #click button "Generate Gif"
+    scenario "they see the field to enter a gif category" do
+      admin = create(:user, role: 1)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      category_name = "thanks"
 
-      #expect(current_path).to eq gif_path(gif); gifs should be nested under categories but not necessary for the show page
-      #expect(page).to have_css("img[src*="#{gif_image_path}"]")
-      #within("h1") do
-        #expect(page).to have_content(gif.category); this acts like the name of the gif
+      visit new_admin_category_path
+
+      fill_in "Name", with: category_name
+      click_button "Generate Gif"
+
+      expect(current_path).to eq category_path(Category.last)
+
+      # expect(page).to have_css('img[src*="#{gif_image_path}"]')
+
+      within("h1") do
+        expect(page).to have_content(Category.last.name)
       end
     end
-
-
   end
+
+
+end
