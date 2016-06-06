@@ -15,7 +15,7 @@ RSpec.feature "admin creates categories and gifs" do
 
       expect(current_path).to eq category_path(Category.last)
 
-      # expect(page).to have_css('img[src*="#{gif_image_path}"]')
+      expect(page).to have_css('img[src*="#thanks"]')
 
       within("h1") do
         expect(page).to have_content(Category.last.name)

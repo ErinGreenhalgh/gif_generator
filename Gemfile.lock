@@ -68,6 +68,8 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -92,6 +94,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    multipart-post (2.0.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
@@ -195,8 +198,10 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner
   factory_girl_rails
+  faraday
   jbuilder (~> 2.0)
   jquery-rails
+  json
   launchy
   pg (~> 0.15)
   rails (= 4.2.6)
